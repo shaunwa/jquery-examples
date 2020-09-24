@@ -1,0 +1,190 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>JQuery Example - Lesson 1</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="content-wrap">
+    <div class="card">
+        <h1>JQuery Example Project - Lesson 1</h1>
+        <p class="welcome-text">
+            This is the sample project for lesson 1, which doubles as a cheat-sheet for what we learn in this lesson
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "all" selector</h3>
+        <pre>
+            <code>
+                $("*")
+            </code>
+        </pre>
+        <p>Use this to select all the elements on the page (you probably don't want to do this)</p>
+    </div>
+    <div class="card">
+        <h3>The element selector</h3>
+        <pre>
+            <code>
+                $("h1")
+            </code>
+        </pre>
+        <p>Use this to select elements by the type of element they are (for example, a h1 element, a p element, etc.)</p>
+    </div>
+    <div class="card">
+        <h3>The class selector</h3>
+        <pre>
+            <code>
+                $(".my-class")
+            </code>
+        </pre>
+        <p>Use this to select an element or elements by their class</p>
+    </div>
+    <div class="card">
+        <h3>The id selector</h3>
+        <pre>
+            <code>
+                $("#my-id")
+            </code>
+        </pre>
+        <p>Use this to select an element by its id</p>
+    </div>
+    <div class="card">
+        <h3>The "multiple" selector</h3>
+        <pre>
+            <code>
+                $("h1, .my-class, #my-id")
+            </code>
+        </pre>
+        <p>
+            Use this when you want to select multiple different kinds of elements in the same selection.
+            Note that with this selector, the selectors will be "OR"ed together.
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "first" and "last" selector</h3>
+        <pre>
+            <code>
+                $("p:first")
+            </code>
+            <code>
+                $("h3:last")
+            </code>
+        </pre>
+        <p>Use these to select the first or last occurrence of an element on the page</p>
+    </div>
+    <div class="card">
+        <h3>The "eq" selector</h3>
+        <pre>
+            <code>
+                $(".my-class:eq(3)")
+            </code>
+        </pre>
+        <p>Use this to select the nth occurrence of an element on the page (remember that the count begins at 0)</p>
+    </div>
+    <div class="card">
+        <h3>The "even" and "odd" selector</h3>
+        <pre>
+            <code>
+                $("td:even")
+            </code>
+            <code>
+                $("p:odd")
+            </code>
+        </pre>
+        <p>Use this to select all the evenly- or oddly-indexed elements on the page (for example, the 1st, 3rd, 5th, etc.)</p>
+    </div>
+    <div class="card">
+        <h3>The "contains" selector</h3>
+        <pre>
+            <code>
+                $("p:contains('text')")
+            </code>
+        </pre>
+        <p>Use this to select only elements whose content contains a certain string</p>
+    </div>
+    <div class="card">
+        <h3>The "not" selector</h3>
+        <pre>
+            <code>
+                $("p:not('.do-not-select')")
+            </code>
+        </pre>
+        <p>
+            Use this to provide additional criteria that should NOT be true in order\
+            for a given element to be selected. For example, the above selects all
+            paragraph elements that do not have the class "do-not-select"
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "attribute equals" selector</h3>
+        <pre>
+            <code>
+                $("input[type='text']")
+                $("[href='https://google.com']")
+            </code>
+        </pre>
+        <p>
+            Use this to select all elements for which a given attribute has a certain value. All these attribute selectors can be used
+            with or without an additional specifier before the square brackets.
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "attribute does not equal" selector</h3>
+        <pre>
+            <code>
+                $("a[href!='https://google.com']")
+            </code>
+        </pre>
+        <p>Use this to select all elements for which a given attribute does NOT have a certain value</p>
+    </div>
+    <div class="card">
+        <h3>The "attribute exists" selector</h3>
+        <pre>
+            <code>
+                $("button[onclick]")
+                $("[href]")
+            </code>
+        </pre>
+        <p>Use this to select all elements that simply have some value defined for a given attribute, it doesn't matter what value they have</p>
+    </div>
+    <div class="card">
+        <h3>The "attribute contains" selector</h3>
+        <pre>
+            <code>
+                $("a[href*='google.com']")
+            </code>
+        </pre>
+        <p>Use this to select all elements whose value for a given attribute contains a certain string</p>
+    </div>
+    <div class="card">
+        <h3>The "attribute starts with" and "attribute ends with" selectors</h3>
+        <pre>
+            <code>
+                $("[href^='https://']")
+            </code>
+            <code>
+                $("[href$='.html']")
+            </code>
+        </pre>
+        <p>Use these to select all elements whose value for a given attribute starts with or ends with a certain string</p>
+    </div>
+    <div class="card">
+        <h3>Using multiple attribute selectors</h3>
+        <pre>
+            <code>
+                $("input[type='text'][class*='name']")
+            </code>
+        </pre>
+        <p>
+            Use this to combine two or more attribute selectors. The different requirements will be "AND"ed together.
+            For example, the above selects all input elements with the "type" property equal to "text" AND a 
+            class attribute that contains the string "name"
+        </p>
+    </div>
+    </div>
+</body>
+</html>

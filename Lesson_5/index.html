@@ -1,0 +1,283 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>JQuery Example - Lesson 5</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<body>
+    <div id="content-wrap">
+    <div class="card">
+        <h1>JQuery Example Project - Lesson 5</h1>
+        <p class="welcome-text">
+            This is the sample project for lesson 5, which doubles as a cheat-sheet for what we learn in this lesson
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "hide" method</h3>
+        <pre>
+            <code>
+                $('#my-element').hide(
+                    1000,
+                    'swing',
+                    function() {
+                        console.log("Animation completed!");
+                    },
+                );
+            </code>
+        </pre>
+        <p>
+            This method hides the selected element or elements with
+            a basic animation. Using the arguments, you're allowed to
+            specify how long this animation will take, the basic acceleration
+            of the animation, and a callback function that will be called
+            when the animation completes.
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "show" method</h3>
+        <pre>
+            <code>
+                $('#my-element').show(
+                    1000,
+                    'swing',
+                    function() {
+                        console.log("Animation completed!");
+                    },
+                );
+            </code>
+        </pre>
+        <p>
+            This method does the opposite of the hide method, it reveals
+            a hidden element using an animation. The arguments here are the
+            same as with "hide".
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "toggle" method</h3>
+        <pre>
+            <code>
+                $('#my-element').toggle(
+                    1000,
+                    'swing',
+                    function() {
+                        console.log("Animation completed!");
+                    },
+                );
+            </code>
+        </pre>
+        <p>
+            This method is a combination of "hide" and "show". It animates
+            a hidden element onto the page and hides a visible element.
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "animate" method</h3>
+        <pre>
+            <code>
+                $('#my-container').animate({
+                    padding: '16px',
+                    maxWidth: '400px',
+                });
+            </code>
+        </pre>
+        <p>
+            Use this method to animate numeric CSS attributes. For example,
+            we can animate an element getting wider, an element getting more
+            padding, etc. By default, this method doesn't work with colors, but
+            you can add this functionality using a library called jQuery UI. Note
+            that CSS attribute names in the configuration object should be in
+            camelCase.
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "delay" method</h3>
+        <pre>
+            <code>
+                $('#my-element')
+                    .delay(1000)
+                    .hide();
+            </code>
+        </pre>
+        <p>
+            Use this method to delay the execution of an animation, or to put
+            a "rest" between subsequent animations.
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "queue" method</h3>
+        <pre>
+            <code>
+                $('#my-element')
+                    .hide()
+                    .delay(1000)
+                    .show()
+                    .animate({ width: '500px' });
+
+                $('#my-element').queue();
+            </code>
+        </pre>
+        <p>
+            Use this method to get a list of all unexecuted animations for a given element.
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "stop" method</h3>
+        <pre>
+            <code>
+                // Pause an element's animation
+                $('#my-element').stop();
+            </code>
+            <code>
+                // Stop and clear an element's animations
+                $('#my-element').stop(true);
+            </code>
+            <code>
+                // Clear and jump to the end of an element's animations
+                $('#my-element').stop(true, true);
+            </code>
+        </pre>
+        <p>
+            Use this method, with varying combinations of arguments, to pause,
+            clear, or jump to the end of an element's animation queue (respectively).
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "fadeOut" method</h3>
+        <pre>
+            <code>
+                $('#my-element').fadeOut();
+            </code>
+        </pre>
+        <p>
+            Use this method to fade a visible element off the page. It's a
+            shortcut for fading the opacity to 0 and then setting "display" to "none".
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "fadeIn" method</h3>
+        <pre>
+            <code>
+                $('#my-element').fadeOut();
+            </code>
+        </pre>
+        <p>
+            Use this method to fade a hidden element back on to the page. It's a
+            shortcut for setting "display" to "none", and then fading to full opacity.
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "fadeToggle" method</h3>
+        <pre>
+            <code>
+                $('#my-element').fadeToggle();
+            </code>
+        </pre>
+        <p>
+            This method is a combination of fadeIn and fadeOut. It will fade
+            an element onto the page if it's hidden and fade it off the page
+            if it's visible.
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "fadeTo" method</h3>
+        <pre>
+            <code>
+                $('#my-element').fadeTo(0.5);
+            </code>
+        </pre>
+        <p>
+            Use this method to fade an element to a given opacity. The argument
+            given should be from 0 (completely transparent) to 1 (completely opaque).
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "slideUp" method</h3>
+        <pre>
+            <code>
+                $('#my-element').slideUp(400)
+            </code>
+        </pre>
+        <p>
+            This method will slide an element up and then make it disappear from the page.
+            Basically, it reduces an element's height to 0. We can pass an optional
+            argument that determines how long in milliseconds the animation should last.
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "slideDown" method</h3>
+        <pre>
+            <code>
+                $('#my-element').slideDown(400)
+            </code>
+        </pre>
+        <p>
+            This method will slide a hidden element into its spot on the page.
+            Basically, it animates an element's height from 0 to whatever its appropriate height should be.
+            We can pass an optional argument that determines how long in milliseconds the animation should last.
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "slideToggle" method</h3>
+        <pre>
+            <code>
+                $('#my-element').slideToggle()
+            </code>
+        </pre>
+        <p>
+            This is a combination of slideUp and slideDown, and will behave like
+            either one depending on if the element is currently visible or hidden.
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "height" and "width" methods</h3>
+        <pre>
+            <code>
+                $('#my-element').height();
+            </code>
+            <code>
+                $('#my-element').width();
+            </code>
+        </pre>
+        <p>
+            These methods return the height or width, in pixels, of a given element.
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "innerHeight" and "innerWidth" methods</h3>
+        <pre>
+            <code>
+                $('#my-element').innerHeight();
+            </code>
+            <code>
+                $('#my-element').innerWidth();
+            </code>
+        </pre>
+        <p>
+            These methods return the inner height or width, in pixels, of a given element.
+            The "inner height/width" is the size of an element's content, plus the size of the padding.
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "outerHeight" and "outerWidth" methods</h3>
+        <pre>
+            <code>
+                $('#my-element').outerHeight();
+            </code>
+            <code>
+                $('#my-element').outerWidth();
+            </code>
+        </pre>
+        <p>
+            These methods return the outer height or width, in pixels, of a given element.
+            The "outer height/width" is the size of an element's content, padding, and border.
+            We can pass an optional argument to specify whether or not an element's margin should be included in the measurement.
+        </p>
+    </div>
+    </div>
+</body>
+</html>

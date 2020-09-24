@@ -1,0 +1,205 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>JQuery Example - Lesson 2</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="content-wrap">
+    <div class="card">
+        <h1>JQuery Example Project - Lesson 2</h1>
+        <p class="welcome-text">
+            This is the sample project for lesson 2, which doubles as a cheat-sheet for what we learn in this lesson
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "append" method</h3>
+        <pre>
+            <code>
+                $("p").append("&lt;span&gt;THE END&lt;/span&gt;")
+            </code>
+        </pre>
+        <p>Use this to add something to the END of an element's content</p>
+    </div>
+    <div class="card">
+        <h3>The "prepend" method</h3>
+        <pre>
+            <code>
+                $("p").preprend("&lt;span&gt;ONCE UPON A TIME,&lt;/span&gt;")
+            </code>
+        </pre>
+        <p>Use this to add something to the BEGINNING of an element's content</p>
+    </div>
+    <div class="card">
+        <h3>The "before" method</h3>
+        <pre>
+            <code>
+                $("p").before('&lt;h1&gt;Heading!&lt;/h1&gt;')
+            </code>
+        </pre>
+        <p>Use this to insert an element before the select element(s)</p>
+    </div>
+    <div class="card">
+        <h3>The "after" method</h3>
+        <pre>
+            <code>
+                $("p").after('&lt;h1&gt;That's all!&lt;/h1&gt;')
+            </code>
+        </pre>
+        <p>Use this to insert an element after the select element(s)</p>
+    </div>
+    <div class="card">
+        <h3>The "wrap" method</h3>
+        <pre>
+            <code>
+                $("p").wrap("&lt;div class='wrap'&gt;&lt;/div&gt;")
+            </code>
+        </pre>
+        <p>
+            Use this to wrap each selected element inside some HTML structure (i.e. inside another div)
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "wrapAll" method</h3>
+        <pre>
+            <code>
+                $("p").wrapAll("&lt;div class='wrap'&gt;&lt;/div&gt;")
+            </code>
+        </pre>
+        <p>
+            Use this to wrap all selected elements inside the same HTML structure (i.e. inside another div)
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "prependTo", "appendTo", "insertBefore" methods, etc.</h3>
+        <pre>
+            <code>
+                $("&lt;span&gt;THE END&lt;/span&gt;").appendTo("p")
+            </code>
+            <code>
+                $("&lt;span&gt;Once upon a time,&lt;/span&gt;").preprendTo("p")
+            </code>
+            <code>
+                $('&lt;h1&gt;Heading!&lt;/h1&gt;').insertBefore("p");
+            </code>
+            <code>
+                $('&lt;h1&gt;That's all!&lt;/h1&gt;').insertAfter("p");
+            </code>
+        </pre>
+        <p>The methods are the reverse of the preceding methods - they do the same thing, they're just written backwards</p>
+    </div>
+    <div class="card">
+        <h3>The "remove" method</h3>
+        <pre>
+            <code>
+                $(".remove-me").remove()
+            </code>
+        </pre>
+        <p>Use this to remove the selected elements from the DOM</p>
+    </div>
+    <div class="card">
+        <h3>The "detach" method</h3>
+        <pre>
+            <code>
+                $(".move-me-to-the-top")
+                    .detach()
+                    .insertBefore("p:first");
+            </code>
+        </pre>
+        <p>
+            Use this to remove the selected elements from the DOM and then re-insert them in some place by using the "reverse" methods we learned about above
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "empty" method</h3>
+        <pre>
+            <code>
+                $('.content').empty()
+            </code>
+        </pre>
+        <p>
+            Use this to remove all the content from inside the selected elements
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "unwrap" method</h3>
+        <pre>
+            <code>
+                $('.some-wrapped-element').unwrap();
+            </code>
+        </pre>
+        <p>Use this method to remove the surrounding elements from the selected element</p>
+    </div>
+    <div class="card">
+        <h3>The "replaceWith" method</h3>
+        <pre>
+            <code>
+                $('.replace-me').("&lt;h1&gt;Replaced!&lt;/h1&gt;")
+            </code>
+        </pre>
+        <p>Use this to replace the selected elements with some other content</p>
+    </div>
+    <div class="card">
+        <h3>The "replaceAll" method</h3>
+        <pre>
+            <code>
+                $("&lt;h1&gt;Replaced!&lt;/h1&gt;").replaceAll('.replace-me')
+            </code>
+        </pre>
+        <p>This is the reverse syntax of replaceWith</p>
+    </div>
+    <div class="card">
+        <h3>The "attr" method</h3>
+        <pre>
+            <code>
+                $("#some-id").attr("id") // -> "some-id"
+            </code>
+            <code>
+                $("#some-id").attr("id", "some-other-id")
+            </code>
+        </pre>
+        <p>Use this to get or modify the attribute of an element</p>
+    </div>
+    <div class="card">
+        <h3>The "prop" method</h3>
+        <pre>
+            <code>
+                $("#my-input").prop("value")
+                // -> whatever the current input value is
+            </code>
+            <code>
+                $("#my-input").prop("value", "New value!")
+            </code>
+        </pre>
+        <p>Use this to get or modify the property of an element (see the video for the difference between attributes and props)</p>
+    </div>
+    <div class="card">
+        <h3>The "removeAttr" and "removeProp" methods</h3>
+        <pre>
+            <code>
+                $("p").removeAttr("class")
+            </code>
+            <code>
+                $("p").removeProp("class")
+            </code>
+        </pre>
+        <p>
+            Use these methods to completely remove a given attribute or property (basically sets it to undefined)
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "css" method</h3>
+        <pre>
+            <code>
+                $(".error").css("color", "red")
+            </code>
+        </pre>
+        <p>Use this to modify the value of a given CSS property</p>
+    </div>
+    </div>
+</body>
+</html>

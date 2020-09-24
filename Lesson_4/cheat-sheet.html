@@ -1,0 +1,136 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JQuery Example - Lesson 4</title>
+    <link rel="stylesheet" type="text/css" href="cheat-sheet-styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="content-wrap">
+    <div class="card">
+        <h1>JQuery Example Project - Lesson 4</h1>
+        <p class="welcome-text">
+            This is the sample project for lesson 4, which doubles as a cheat-sheet for what we learn in this lesson
+        </p>
+    </div>
+    <div class="card">
+        <h3>Basic Ajax Calls</h3>
+        <pre>
+            <code>
+                $.ajax({
+                    url: 'http://sitename.com/path',
+                    success: function(result) {
+                        console.log("Request completed successfully!");
+                    },
+                });
+            </code>
+        </pre>
+        <p>
+            JQuery's "ajax" method can be used to make network requests. We
+            pass it a configuration object which contains data such as the
+            URL that we want to make the request to, callbacks for if the call
+            is successful or fails, etc. Keep in mind that the default request
+            type for AJAX requests is "GET".
+        </p>
+    </div>
+    <div class="card">
+        <h3>Basic GET Requests</h3>
+        <pre>
+            <code>
+                $.ajax({
+                    url: 'http://sitename.com/path',
+                    type: 'GET',
+                    success: function(result) {
+                        console.log("Request completed successfully!");
+                    },
+                });
+            </code>
+            <code>
+                $.get('http://sitename.com/path', function(result) {
+                    console.log("Request completed successfully");
+                });
+            </code>
+        </pre>
+        <p>
+            To make a GET request using jQuery, we can either use the basic
+            "ajax" method and specify "GET" as the "type" (note that this is
+            the default value anyway, so we don't need it there), or we can use
+            jQuery's "get" method, which is just a shorthand version.
+        </p>
+    </div>
+    <div class="card">
+        <h3>Basic POST Requests</h3>
+        <pre>
+            <code>
+                $.ajax({
+                    url: 'http://sitename.com/path',
+                    type: 'POST',
+                    data: JSON.stringify({ a: 1 }),
+                    contentType: 'application/json',
+                    success: function(result) {
+                        console.log("Request completed successfully!");
+                    },
+                });
+            </code>
+            <code>
+                $.post(
+                    'http://sitename.com/path',
+                    { a: 1 },
+                    function(result) {
+                        console.log("Request completed successfully");
+                    },
+                );
+            </code>
+        </pre>
+        <p>
+            To make a POST request using jQuery, we can use the basic
+            "ajax" method and specify "POST" as the "type". In this case,
+            we can also add a "data" property to specify the request body,
+            as well as a "contentType" property to specify what sort of
+            format the data is in (i.e. JSON). We can also use
+            jQuery's "post" method, which is a shorthand version.
+        </p>
+    </div>
+    <div class="card">
+        <h3>Handling AJAX Errors</h3>
+        <pre>
+            <code>
+                $.ajax({
+                    url: 'http://sitename.com/path',
+                    success: function(result) {
+                        console.log("Request completed successfully!");
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        console.log("An error occurred!");
+                    },
+                });
+            </code>
+        </pre>
+        <p>
+            The "ajax" method's configuration object allows us to specify
+            an "error" callback that will be called in the event that something
+            goes wrong with our request.
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "done" and "fail" Methods</h3>
+        <pre>
+            <code>
+                $.get('http://sitename.com/path')
+                  .done(function(result) { ... })
+                  .fail(function(jqXHR, textStatus, errorThrown) { ... });
+            </code>
+        </pre>
+        <p>
+            While we're able to specify success and error callbacks inside
+            the configuration object, sometimes it's easier and more readable
+            to use the "done" method, which allows us to pass a success callback,
+            and the "fail" method, which allows us to pass an error callback.
+        </p>
+    </div>
+    </div>
+</body>
+</html>

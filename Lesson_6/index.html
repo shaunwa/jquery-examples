@@ -1,0 +1,140 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>JQuery Example - Lesson 6</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<body>
+    <div id="content-wrap">
+    <div class="card">
+        <h1>JQuery Example Project - Lesson 6</h1>
+        <p class="welcome-text">
+            This is the sample project for lesson 6, which doubles as a cheat-sheet for what we learn in this lesson
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "find" method</h3>
+        <pre>
+            <code>
+    $('.todo-list').find('li')
+            </code>
+        </pre>
+        <p>
+            This method finds all elements that match a given selector that lie inside a previously-selected element.
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "children" method</h3>
+        <pre>
+            <code>
+    $('#info-div').children();
+            </code>
+        </pre>
+        <p>
+            This method gets all the elements that are contained inside the selected element.
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "parent" method</h3>
+        <pre>
+            <code>
+    $('#my-element').parent();
+            </code>
+        </pre>
+        <p>
+            This method gets the DOM element that is surrounding the selected element.
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "parents" method</h3>
+        <pre>
+            <code>
+    $('#my-element').parents();
+            </code>
+        </pre>
+        <p>
+            This method gets the DOM element that is surrounding the selected element, as well as the one
+            surrounding THAT element, and so on, all the way up to the html element that surrounds all the
+            elements on the page
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "siblings" method</h3>
+        <pre>
+            <code>
+    $('#some-heading').siblings();
+            </code>
+        </pre>
+        <p>
+            This method returns all the other direct children of the selected element's parent element. In other words,
+            it returns all other elements inside the parent on the same level as the selected element.
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "each" method</h3>
+        <pre>
+            <code>
+    $.each( $('h3'), function(i, element) {
+        console.log($(element).text());
+    });
+            </code>
+        </pre>
+        <p>
+            This method allows you to perform some sort of action for each element in a selection, for example, printing
+            the inner text of all h3 headings.
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "filter" method</h3>
+        <pre>
+            <code>
+    $('input').filter(function(i, element) {
+        return $(element).val().length === 0;
+    }).css(‘border’, ‘1px solid red’);                
+            </code>
+        </pre>
+        <p>
+            This method allows us to filter a selection programmatically, instead of by matching some selector.
+            For example, we can use it to apply a red border to all input elements that don't contain any text.
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "has" method</h3>
+        <pre>
+            <code>
+    $('div').has('h3');
+            </code>
+        </pre>
+        <p>
+            This method is used to filter a selection of elements based on whether or not those elements contain
+            some other element that matches a given selector. For example, finding all divs on the page that contain
+            an h3 element.
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "is" method</h3>
+        <pre>
+            <code>
+    $(‘button’).click(function() {
+        if( $(this).is(‘:even’) ) {
+            console.log(“I’m even!”);
+        } else {
+            console.log(“I’m odd!”);
+        }
+    });
+            </code>
+        </pre>
+        <p>
+            Use this method to find out programmatically whether or not a given element matches a given selector
+            (this method returns a boolean). This can be used, for example, to figure out whether a given element
+            is in an even-indexed position on the page and apply some sort of styling or custom behavior to it.
+        </p>
+    </div>
+    </div>
+</body>
+</html>

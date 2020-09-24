@@ -1,0 +1,25 @@
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    background-color: #eee;
+    margin: 0;
+}
+
+#content-wrap {
+    margin: auto;
+    max-width: 700px;
+    background-color: #fff;
+    padding: 16px;
+}
+
+code {
+    background-color: #ddd;
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+}
+
+.card {
+    border-bottom: 1px dotted black;
+    padding: 32px 16px;
+}

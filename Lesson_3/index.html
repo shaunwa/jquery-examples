@@ -1,0 +1,311 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JQuery Example - Lesson 3</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="resize-and-scroll.js"></script>
+</head>
+
+<body>
+    <div id="content-wrap">
+    <div class="card">
+        <h1>JQuery Example Project - Lesson 3</h1>
+        <p class="welcome-text">
+            This is the sample project for lesson 3, which doubles as a cheat-sheet for what we learn in this lesson
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "on" method</h3>
+        <pre>
+            <code>
+$("p").("click", function() { console.log("Clicked!") });
+            </code>
+            <code>
+$("button").("click mouseenter", function() {
+    console.log("Clicked or mouse entered!")
+});
+            </code>
+        </pre>
+        <p>
+            Use this to add event handlers to elements, passing the 
+            desired event or events, and the callback function that 
+            should be called when these events occur.
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "trigger" method</h3>
+        <pre>
+            <code>
+$("p").trigger("click");
+            </code>
+        </pre>
+        <p>Use this to trigger an event programmatically on the selected elements</p>
+    </div>
+    <div class="card">
+        <h3>The "off" method</h3>
+        <pre>
+            <code>
+$("p").off(); // removes all event handlers
+            </code>
+            <code>
+$("p").off("click"); // removes all handlers for the "click" event
+            </code>
+            <code>
+function myFunction() { console.log("Hello") }
+$("p").off("click", myFunction);
+// removes only a specific handler for the "click" event
+            </code>
+        </pre>
+        <p>Use this to remove event handlers from elements</p>
+    </div>
+    <div class="card">
+        <h3>Event bubbling</h3>
+        <pre>
+            <code>
+$('p').on('click', function() { console.log('Clicked p') });
+
+$('.card').on('click', function() { console.log('Clicked card') });
+
+$('body').on('click', function() { console.log('Clicked body') });
+            </code>
+        </pre>
+        <p>
+            When an event occurs on an element, that event "bubbles up" to the surrounding elements,
+            unless it is stopped by calling event.stopPropagation()
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "ready" method</h3>
+        <pre>
+            <code>
+                $(function() {
+                    console.log("DOM is ready!");
+                });
+            </code>
+        </pre>
+        <p>
+            The callback we pass to this event will be called when the DOM is ready to be manipulated.
+            This is a shorthand for "$(document).ready(...)", but is actually jQuery's recommended way to write it.
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "resize" method</h3>
+        <pre>
+            <code>
+                $(window).resize(function() {
+                    console.log("Window resized!");
+                });
+            </code>
+        </pre>
+        <p>
+            The callback passed to this method will be called whenever the browser window is resized
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "scroll" method</h3>
+        <pre>
+            <code>
+                $(window).scroll(function() {
+                    console.log("Window scrolled!");
+                });
+            </code>
+        </pre>
+        <p>The callback we pass to this method will be called whenever the content of the element (usually the window) is scrolled</p>
+    </div>
+    <div class="card">
+        <h3>The "click" method</h3>
+        <pre>
+            <code>
+                $('p').click(function() {
+                    $(this).css('color', 'red')
+                });                
+            </code>
+        </pre>
+        <p>This method adds an event listener for whenever the user clicks on an element</p>
+    </div>
+    <div class="card">
+        <h3>The "dblclick" method</h3>
+        <pre>
+            <code>
+                $('p').click(function() {
+                    $(this).css('color', 'red')
+                });                
+            </code>
+        </pre>
+        <p>This method adds an event listener for whenever the user double-clicks on an element</p>
+    </div>
+    <div class="card">
+        <h3>The "mouseenter" method</h3>
+        <pre>
+            <code>
+                $('p').mouseenter(function() {
+                    $(this).css('background-color', 'black');
+                    $(this).css('color', 'white');
+                });                
+            </code>
+        </pre>
+        <p>This method adds an event listener for whenever the user's cursor enters the element</p>
+    </div>
+    <div class="card">
+        <h3>The "mouseleave" method</h3>
+        <pre>
+            <code>
+                $('p').mouseleave(function() {
+                    $(this).css('background-color', 'white');
+                    $(this).css('color', 'black');
+                });                
+            </code>
+        </pre>
+        <p>This method adds an event listener for whenever the user's cursor leaves the element</p>
+    </div>
+    <div class="card">
+        <h3>The "keydown" method</h3>
+        <pre>
+            <code>
+                $('input').keydown(function(event) {
+                    console.log(`You just typed the letter: ${event.key}, which is key-code: ${event.keyCode}`);
+                });
+            </code>
+        </pre>
+        <p>This method adds an event listener that gets called whenever the user types a key while the element is selected</p>
+    </div>
+    <div class="card">
+        <h3>The "keyup" method</h3>
+        <pre>
+            <code>
+                $('input').keyup(function(event) {
+                    console.log(`You just released the letter: ${event.key}, which is key-code: ${event.keyCode}`);
+                });
+            </code>
+        </pre>
+        <p>This method adds an event listener that gets called whenever the user releases a key while the element is selected</p>
+    </div>
+    <div class="card">
+        <h3>The "keypress" method</h3>
+        <pre>
+            <code>
+                $('input').keypress(function(event) {
+                    console.log(`You just pressed the letter: ${event.key}, which is key-code: ${event.keyCode}`);
+                });
+            </code>
+        </pre>
+        <p>
+            This method adds an event listener that gets called whenever the user presses a key while the element is selected.
+            Unlike "keydown", this method only listens for alphanumeric keys.
+        </p>
+    </div>
+    <div class="card">
+        <h3>The jQuery "Event" object</h3>
+        <pre>
+            <code>
+                {
+                    type: 'click',
+                    target: 'p.welcome-text',
+                    pageX: 570,
+                    pageY: 120,
+                    timeStamp: 184107.5450000062,
+                    which: 1
+                    ...
+                }
+            </code>
+        </pre>
+        <p>This object contains a lot of information about the event that just occurred. It is passed as the first argument to the callback function that we provide.</p>
+    </div>
+    <div class="card">
+        <h3>The "focus" method</h3>
+        <pre>
+            <code>
+                $('input').focus(function() {
+                    console.log("Input element focused!");
+                });
+            </code>
+        </pre>
+        <p>
+            Use this method to add an event handler for when a "focusable" element,
+            such as a text input, receives focus. This method is a shorthand for "on('focus', ...)",
+            and can also be called without any arguments to trigger the focus event.
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "change" method</h3>
+        <pre>
+            <code>
+                $('input').change(function() {
+                    console.log("Value of the input element changed!");
+                });
+            </code>
+        </pre>
+        <p>
+            Use this method to add an event handler for when the value of an element,
+            for example, the text in a text input or the selected value of a radio button,
+            is changed. Note that for text inputs, this doesn't fire for every key the user
+            presses, it only fires when the user clicks out of the input if the value is different.
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "val" method</h3>
+        <pre>
+            <code>
+                $('input').val() // get the current value in the input
+                $('input').val("Hello!"); // set the input value
+            </code>
+        </pre>
+        <p>
+            Use this method to either get or set the value of a form
+            element. For example, the text in a text input.
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "select" method</h3>
+        <pre>
+            <code>
+                $('input').select(function() {
+                    console.log("Selected text inside an element");
+                    console.log("The selected text is: " +
+                        window.getSelection().toString());
+                });
+            </code>
+        </pre>
+        <p>
+            Use this method to add an event listener for when the
+            user selects some text inside a text input or inside a
+            textarea. You can get the currently selected text by calling
+            "window.getSelection().toString()"
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "blur" method</h3>
+        <pre>
+            <code>
+                $('input').blur(function() {
+                    console.log("Input element lost focus");
+                });
+            </code>
+        </pre>
+        <p>
+            Use this method to add an event handler for when a "focusable" element,
+            such as a text input, loses focus. This method is a shorthand for "on('blur', ...)",
+            and can also be called without any arguments to trigger the blur event.
+        </p>
+    </div>
+    <div class="card">
+        <h3>The "submit" method</h3>
+        <pre>
+            <code>
+                $('form').submit(function() {
+                    console.log("Form submitted!");
+                });
+            </code>
+        </pre>
+        <p>
+            Use this method to add an event handler for when a form
+            is submitted. This will usually mean that the user has clicked
+            the form's "submit" button.
+        </p>
+    </div>
+    </div>
+</body>
+</html>
